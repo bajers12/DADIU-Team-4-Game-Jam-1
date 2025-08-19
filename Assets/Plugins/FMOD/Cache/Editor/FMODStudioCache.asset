@@ -96,7 +96,7 @@ MonoBehaviour:
   Path: ../../DADIU_GJ_FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638912110803001479
+  lastModified: 638912156724149600
   FileSizes:
   - Name: Desktop
     Value: 1102
@@ -116,10 +116,10 @@ MonoBehaviour:
   Path: ../../DADIU_GJ_FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638912110802994190
+  lastModified: 638912156724140550
   FileSizes:
   - Name: Desktop
-    Value: 398240
+    Value: 420480
   Exists: 1
 --- !u!114 &-2808074949514804933
 MonoBehaviour:
@@ -260,7 +260,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: -3431632621192760528}
   cacheVersion: 131849
-  cacheTime: 638912110803001479
+  cacheTime: 638912156724149600
   SerializableEventsDict:
   - key: event:/SFX/SFX_KeyRight
     index: 0

@@ -432,6 +432,160 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!1 &684992770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 684992772}
+  - component: {fileID: 684992771}
+  m_Layer: 0
+  m_Name: BeatManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &684992771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684992770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41bd1215fd4754df988554e31dbe728c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioBeatMarkerTiming
+  musicEvent:
+    Guid:
+      Data1: 443224732
+      Data2: 1267021075
+      Data3: -1430256214
+      Data4: 571370153
+    Path: event:/MUS/MUS_BreakdanceTest
+  bpm: 124
+  beatsPerBar: 4
+  songLength: 120
+  startOffset: 2
+  beatWindow: 0.2
+  manualBeats:
+  - 0
+  - 0.25
+  - 0.5
+  - 0.75
+  - 1
+  - 1.25
+  - 1.5
+  - 1.75
+  - 2
+  - 2.25
+  - 2.5
+  - 2.75
+  - 3
+  - 3.25
+  - 3.5
+  - 3.75
+  OnBeatInput:
+    m_PersistentCalls:
+      m_Calls: []
+  OffBeatInput:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 790632935}
+        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!4 &684992772
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684992770}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.80179, y: 0, z: 54.48901}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &790632934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 790632936}
+  - component: {fileID: 790632935}
+  m_Layer: 0
+  m_Name: SFX_BadTiming
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &790632935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790632934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 624655764
+      Data2: 1255973969
+      Data3: -1788262518
+      Data4: -2081889488
+    Path: event:/SFX/SFX_BadMove
+  Event: 
+  EventPlayTrigger: 0
+  EventStopTrigger: 0
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  NonRigidbodyVelocity: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!4 &790632936
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 790632934}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2102030122}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &869737267
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +1126,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966542864}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -986,7 +1140,7 @@ MonoBehaviour:
       Data4: 571370153
     Path: event:/MUS/MUS_BreakdanceTest
   Event: 
-  EventPlayTrigger: 1
+  EventPlayTrigger: 0
   EventStopTrigger: 0
   AllowFadeout: 1
   TriggerOnce: 0
@@ -1083,6 +1237,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1027700511}
+  - {fileID: 790632936}
   m_Father: {fileID: 1263134033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2116797181
@@ -1188,3 +1343,4 @@ SceneRoots:
   - {fileID: 1585277079}
   - {fileID: 2116797181}
   - {fileID: 1263134033}
+  - {fileID: 684992772}
