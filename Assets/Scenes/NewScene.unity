@@ -257,7 +257,7 @@ GameObject:
   - component: {fileID: 384487460}
   - component: {fileID: 384487461}
   m_Layer: 0
-  m_Name: ArrowDown
+  m_Name: SFXArrowDown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -380,7 +380,7 @@ GameObject:
   - component: {fileID: 672419711}
   - component: {fileID: 672419712}
   m_Layer: 0
-  m_Name: ArrowRight
+  m_Name: SFXArrowRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -752,7 +752,7 @@ GameObject:
   - component: {fileID: 1536222591}
   - component: {fileID: 1536222592}
   m_Layer: 0
-  m_Name: ArrowUp
+  m_Name: SFXArrowUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -896,7 +896,7 @@ GameObject:
   - component: {fileID: 1892826659}
   - component: {fileID: 1892826660}
   m_Layer: 0
-  m_Name: ArrowLeft
+  m_Name: SFXArrowLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -959,7 +959,7 @@ GameObject:
   - component: {fileID: 1966542866}
   - component: {fileID: 1966542865}
   m_Layer: 0
-  m_Name: TEMP_Music
+  m_Name: MUSTemp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
