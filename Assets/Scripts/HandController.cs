@@ -22,6 +22,7 @@ public class HandController : MonoBehaviour
     [SerializeField] private bool wrapAround = true;
 
     [SerializeField] private ChosenView chosenView;
+    [SerializeField] private ScoreSystem.DamageManager damageManager;
 
     [Header("Auto-start for testing")]
     [SerializeField] private bool autoStartOnPlay = true;
@@ -188,6 +189,8 @@ public class HandController : MonoBehaviour
     {
         left.Disable(); right.Disable(); confirm.Disable();
         hoverSystem.Hide();
+
+        OnCardsSelected?.Invoke()
 
         // Toss remaining cards
         yield return TossEntireHand();
