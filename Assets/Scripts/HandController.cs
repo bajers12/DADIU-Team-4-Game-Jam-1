@@ -24,8 +24,8 @@ public class HandController : MonoBehaviour
     [Header("Auto-start for testing")]
     [SerializeField] private bool autoStartOnPlay = true;
 
-    [Header("Random deal pool (duplicates allowed)")]
-    [Tooltip("Cards will be picked at random from this list with replacement.")]
+    [Header("Random deal pool")]
+    [Tooltip("Cards will be picked at random from this list without replacement.")]
     [SerializeField] private List<CardData> cardPool = new List<CardData>();   // <-- add your ~12 CardData here
 
     [Header("Events")]

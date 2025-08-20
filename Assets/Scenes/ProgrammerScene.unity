@@ -581,6 +581,9 @@ MonoBehaviour:
   cardPool:
   - {fileID: 11400000, guid: e0de49cc7df5a4745b65eec6e5806fe6, type: 2}
   - {fileID: 11400000, guid: c7ff9a1634ff11d419449262117a0868, type: 2}
+  - {fileID: 11400000, guid: e0de49cc7df5a4745b65eec6e5806fe6, type: 2}
+  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
+  - {fileID: 11400000, guid: 1abdc9ea9fd58694f97480d869ca7ef3, type: 2}
   OnTurnEnded:
     m_PersistentCalls:
       m_Calls: []
