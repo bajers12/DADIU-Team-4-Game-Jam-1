@@ -30,7 +30,7 @@ public class BeatChecker : MonoBehaviour
 
     private void Start()
     {
-        // build beat map
+        // build beatmarker map
         GenerateBeatMap();
         MergeManualBeats();
 
@@ -41,7 +41,8 @@ public class BeatChecker : MonoBehaviour
 
         musicStartTime = Time.time;
     }
-
+    
+    //Gets arrow key input
     private void Update()
     {
         if (Keyboard.current.upArrowKey.wasPressedThisFrame) HandleInput("Up");
@@ -54,12 +55,13 @@ public class BeatChecker : MonoBehaviour
     {
         if (IsOnBeat(out float closestBeat))
         {
-            Debug.Log($"❌ {inputName} OFF-beat (closest: {closestBeat:F2}s)");
+           
+            Debug.Log($"❌ {inputName} OFF-BEAT (closest: {closestBeat:F2}s)");
             OffBeatInput?.Invoke(inputName);
         }
         else
         {
-            Debug.Log($"✅ {inputName} ON-beat (closest: {closestBeat:F2}s)");
+            Debug.Log($"✅ {inputName} ON-Beat (closest: {closestBeat:F2}s)");
             OnBeatInput?.Invoke(inputName);
         }
     }
@@ -75,6 +77,7 @@ public class BeatChecker : MonoBehaviour
         }
     }
 
+    
     private void MergeManualBeats()
     {
         foreach (var beat in manualBeats)

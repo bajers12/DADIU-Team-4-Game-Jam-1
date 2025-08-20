@@ -472,7 +472,7 @@ MonoBehaviour:
   beatsPerBar: 4
   songLength: 120
   startOffset: 2
-  beatWindow: 0.2
+  beatWindow: 0.1
   manualBeats:
   - 0
   - 0.25
@@ -495,19 +495,7 @@ MonoBehaviour:
       m_Calls: []
   OffBeatInput:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 790632935}
-        m_TargetAssemblyTypeName: FMODUnity.StudioEventEmitter, FMODUnity
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!4 &684992772
 Transform:
   m_ObjectHideFlags: 0
