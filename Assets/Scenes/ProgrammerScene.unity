@@ -129,15 +129,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3148611200237580140, guid: f742698ed80923d47ab3879105a1c327, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3148611200237580140, guid: f742698ed80923d47ab3879105a1c327, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3148611200237580140, guid: f742698ed80923d47ab3879105a1c327, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1.25
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3148611200237580140, guid: f742698ed80923d47ab3879105a1c327, type: 3}
       propertyPath: m_LocalPosition.x
@@ -231,8 +231,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 743925834}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -280,11 +280,11 @@ MonoBehaviour:
         value:
           x: -0.1299985
           y: 0.6950541
-          z: 0.11681326
-          w: 0.69739133
+          z: 0.11681329
+          w: 0.69739145
     - Position:
         x: 0
-        y: 1.83
+        y: 0.2
         z: 0
       TangentIn:
         x: 0
@@ -307,17 +307,17 @@ MonoBehaviour:
       TangentIn:
         x: -0
         y: -0
-        z: -0.53243685
+        z: -0.5003998
       TangentOut:
         x: 0
         y: 0
-        z: 0.53243685
+        z: 0.5003998
       Rotation:
         value:
-          x: 0.10313905
-          y: 0.69954437
-          z: -0.14357965
-          w: 0.69237626
+          x: 0.019607484
+          y: 0.70683485
+          z: -0.0086589875
+          w: 0.7070537
     m_MetaData:
     - Mode: 3
       Tension: 0.5
@@ -381,6 +381,118 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardViewHoverSystem
   cardViewHover: {fileID: 450390335}
+--- !u!1 &423091237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 423091238}
+  - component: {fileID: 423091239}
+  m_Layer: 0
+  m_Name: Spline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &423091238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423091237}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1427009448}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &423091239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 423091237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dab5c7d4c32e743048dfca98e2d5914f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Splines::UnityEngine.Splines.SplineContainer
+  m_Spline:
+    m_EditModeType: 1
+    m_Knots: []
+    m_MetaData: []
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Splines:
+  - m_EditModeType: 1
+    m_Knots:
+    - Position:
+        x: -20
+        y: 0
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.5
+      TangentOut:
+        x: 0
+        y: 0
+        z: 1.5
+      Rotation:
+        value:
+          x: 0
+          y: 0.70710677
+          z: 0
+          w: 0.70710677
+    - Position:
+        x: -5
+        y: 0
+        z: 0
+      TangentIn:
+        x: -0
+        y: -0
+        z: -1.5
+      TangentOut:
+        x: 0
+        y: 0
+        z: 1.5
+      Rotation:
+        value:
+          x: 0
+          y: 0.70710677
+          z: 0
+          w: 0.70710677
+    m_MetaData:
+    - Mode: 0
+      Tension: 0.5
+    - Mode: 0
+      Tension: 0.5
+    m_Closed: 0
+    m_IntData:
+      m_Data: []
+    m_FloatData:
+      m_Data: []
+    m_Float4Data:
+      m_Data: []
+    m_ObjectData:
+      m_Data: []
+  m_Knots:
+    m_KnotsLink: []
 --- !u!114 &450390335 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2284977728794204310, guid: f742698ed80923d47ab3879105a1c327, type: 3}
@@ -524,6 +636,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dba118cbf066ea46a576e5b4a54b493, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandView
+  spacing: 1
+  shrinkToFit: 1
+  edgePadding: 0.05
   splineContainer: {fileID: 244255602}
 --- !u!1 &1018054060
 GameObject:
@@ -577,13 +692,21 @@ MonoBehaviour:
   hoverY: -2
   startAtRightMost: 1
   wrapAround: 0
+  chosenView: {fileID: 1427009449}
   autoStartOnPlay: 1
   cardPool:
   - {fileID: 11400000, guid: e0de49cc7df5a4745b65eec6e5806fe6, type: 2}
-  - {fileID: 11400000, guid: c7ff9a1634ff11d419449262117a0868, type: 2}
   - {fileID: 11400000, guid: e0de49cc7df5a4745b65eec6e5806fe6, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
+  - {fileID: 11400000, guid: 881eff7ba2ed70e44b4927af7780dd99, type: 2}
+  - {fileID: 11400000, guid: 7de66faa56afb724bb8dd6c452892b2b, type: 2}
   - {fileID: 11400000, guid: 1abdc9ea9fd58694f97480d869ca7ef3, type: 2}
+  - {fileID: 11400000, guid: 1abdc9ea9fd58694f97480d869ca7ef3, type: 2}
+  - {fileID: 11400000, guid: 02aa0212a9e9fd14fa45e5a69316d679, type: 2}
+  - {fileID: 11400000, guid: c7ff9a1634ff11d419449262117a0868, type: 2}
+  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
+  - {fileID: 11400000, guid: c7ff9a1634ff11d419449262117a0868, type: 2}
+  - {fileID: 11400000, guid: 668a76d1e045c5d40b9f8e807a9ffc86, type: 2}
+  - {fileID: 11400000, guid: 5633944a3e4da284c99eb33fa00894db, type: 2}
   OnTurnEnded:
     m_PersistentCalls:
       m_Calls: []
@@ -711,6 +834,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1967216410}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1427009447
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1427009448}
+  - component: {fileID: 1427009449}
+  m_Layer: 0
+  m_Name: ChosenView
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1427009448
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427009447}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 14.01}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 423091238}
+  m_Father: {fileID: 1967216410}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1427009449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427009447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1de146ec39a2084ca4b6d015b8ae812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChosenView
+  spacing: 0.2
+  shrinkToFit: 0
+  edgePadding: 0.04
+  splineContainer: {fileID: 423091239}
+  creator: {fileID: 2060874519}
 --- !u!1 &1481884770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,6 +1243,7 @@ Transform:
   - {fileID: 1182160871}
   - {fileID: 743925834}
   - {fileID: 450390336}
+  - {fileID: 1427009448}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2060874517

@@ -21,6 +21,8 @@ public class HandController : MonoBehaviour
     [SerializeField] private bool startAtRightMost = true;
     [SerializeField] private bool wrapAround = true;
 
+    [SerializeField] private ChosenView chosenView;
+
     [Header("Auto-start for testing")]
     [SerializeField] private bool autoStartOnPlay = true;
 
@@ -118,7 +120,6 @@ public class HandController : MonoBehaviour
     }
 }
 
-    // -------- selection / hover ----------
     private void Step(int dir)
     {
         if (handView.CardsCount == 0) return;
@@ -146,25 +147,26 @@ public class HandController : MonoBehaviour
         hoverSystem.Show(card.Card, pos);
     }
 
-    // -------- choosing / turn end ----------
+
     private void ChooseSelected()
     {
         if (selectedIndex < 0 || selectedIndex >= handView.CardsCount) return;
 
-        var card = handView.GetCard(selectedIndex);
-
+        var cardView = handView.GetCard(selectedIndex);
+        var card = cardView.Card;
         chosenThisTurn++;
+        StartCoroutine(chosenView.AddCard(card));
 
         hoverSystem.Hide();
-        card.SetHovered(false);
+        cardView.SetHovered(false);
 
         Sequence seq = DOTween.Sequence();
-        seq.Append(card.transform.DOScale(1.1f, 0.08f));
-        seq.Append(card.transform.DOScale(0f, 0.12f));
+        seq.Append(cardView.transform.DOScale(1.1f, 0.08f));
+        seq.Append(cardView.transform.DOScale(0f, 0.12f));
         seq.OnComplete(() =>
         {
-            handView.RemoveCard(card);
-            Destroy(card.gameObject);
+            handView.RemoveCard(cardView);
+            Destroy(cardView.gameObject);
 
             if (chosenThisTurn < picksPerTurn && handView.CardsCount > 0)
             {
@@ -189,6 +191,7 @@ public class HandController : MonoBehaviour
 
         // Toss remaining cards
         yield return TossEntireHand();
+        yield return chosenView.ClearAll();
 
         OnTurnEnded?.Invoke();
 

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c9f39228eedbd42b12d88161db502f, type: 3}
   m_Name: DOGBOT
   m_EditorClassIdentifier: Assembly-CSharp::CardData
-  <Description>k__BackingField: ROBOT
+  <Description>k__BackingField: 100 Points
   <Title>k__BackingField: DOGBOT
   <CardImage>k__BackingField: {fileID: 0}
   <ScoreValue>k__BackingField: 100
   <CardDifficulty>k__BackingField: 2
+  <NextMultiplier>k__BackingField: 1
+  <Sequence>k__BackingField: 0a0000000300000000000000000000000a000000040000000700000004000000000000000200000001000000
