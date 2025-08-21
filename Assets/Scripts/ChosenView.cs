@@ -74,7 +74,7 @@ public class ChosenView : MonoBehaviour
             Vector3 fwd = spline.EvaluateTangent(p);
             Vector3 up  = spline.EvaluateUpVector(p);
 
-            Quaternion rot = Quaternion.LookRotation(fwd, up) * Quaternion.Euler(0f, -90f, 0f);
+            Quaternion rot = Quaternion.LookRotation(fwd, up) * Quaternion.Euler(-90f, 0f, 0f);
             Vector3 worldPos = pos + transform.position;
 
             cards[i].transform.DOMove(worldPos, duration);

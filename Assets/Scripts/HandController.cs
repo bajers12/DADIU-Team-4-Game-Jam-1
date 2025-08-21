@@ -35,6 +35,7 @@ public class HandController : MonoBehaviour
 
     private int selectedIndex = -1;
     private int chosenThisTurn = 0;
+    private bool isDealing = false;
 
     private InputAction left, right, confirm;
 
@@ -67,9 +68,9 @@ public class HandController : MonoBehaviour
             StartCoroutine(StartTurnRandom());
     }
 
-    private void Update()
+private void Update()
     {
-        if (handView.CardsCount == 0) return;
+        if (isDealing || handView.CardsCount == 0) return;
 
         if (left.WasPressedThisFrame())  Step(-1);
         if (right.WasPressedThisFrame()) Step(+1);
@@ -198,7 +199,7 @@ public class HandController : MonoBehaviour
         // Ready for next turn (your game flow should call StartTurnRandom again)
         selectedIndex = -1;
         chosenThisTurn = 0;
-
+        StartCoroutine(StartTurnRandom());
         left.Enable(); right.Enable(); confirm.Enable();
     }
 
