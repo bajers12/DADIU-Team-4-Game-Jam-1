@@ -28,11 +28,14 @@ public class BeatChecker : MonoBehaviour
     private float musicStartTime;
     private List<float> allBeats = new List<float>();
 
+    public static BeatChecker instance;
+
     private void Start()
     {
         // build beatmarker map
         GenerateBeatMap();
         MergeManualBeats();
+        instance = this;
 
         // start FMOD music
         musicInstance = RuntimeManager.CreateInstance(musicEvent);
