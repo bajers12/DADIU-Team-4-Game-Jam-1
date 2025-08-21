@@ -361,7 +361,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 427397135891240420}
   cacheVersion: 131849
-  cacheTime: 638913661950182363
+  cacheTime: 638913686941062651
   SerializableEventsDict:
   - key: event:/SFX/SFX_KeyRight
     index: 0
@@ -437,7 +437,7 @@ MonoBehaviour:
   Path: Assets/DADIU_GJ_FMOD 1/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638913661950182363
+  lastModified: 638913686941062651
   FileSizes:
   - Name: Desktop
     Value: 1604
@@ -591,10 +591,10 @@ MonoBehaviour:
   Path: Assets/DADIU_GJ_FMOD 1/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638913661950165383
+  lastModified: 638913686941051361
   FileSizes:
   - Name: Desktop
-    Value: 1908128
+    Value: 2368352
   Exists: 1
 --- !u!114 &7814849754372668912
 MonoBehaviour:
@@ -671,7 +671,7 @@ MonoBehaviour:
   Banks:
   - {fileID: 7655008028668706614}
   IsStream: 1
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 0
   Parameters:
   - {fileID: -1818308864573411249}
