@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{902d2c34-7318-439d-be9b-8f5bf130776e}">
+		<property name="assetPath">
+			<value>UI/UI_CardDecline.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>1</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{0e7ea324-3564-4556-84c5-9bba70c064cd}</destination>
+		</relationship>
+	</object>
+</objects>

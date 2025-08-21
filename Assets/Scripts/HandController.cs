@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using DG.Tweening;
+using FMODUnity;
 
 public class HandController : MonoBehaviour
 {
@@ -32,6 +33,12 @@ public class HandController : MonoBehaviour
 
     [Header("Events")]
     public UnityEvent OnTurnEnded;
+    
+    [Header("FMOD")]
+    [SerializeField] private StudioEventEmitter leftCycle;
+    [SerializeField] private StudioEventEmitter rightCycle;
+    [SerializeField] private StudioEventEmitter cardConfirm;
+    [SerializeField] private StudioEventEmitter cardShuffle;
 
     private int selectedIndex = -1;
     private int chosenThisTurn = 0;
@@ -72,8 +79,18 @@ private void Update()
     {
         if (isDealing || handView.CardsCount == 0) return;
 
-        if (left.WasPressedThisFrame())  Step(-1);
-        if (right.WasPressedThisFrame()) Step(+1);
+        if (left.WasPressedThisFrame())
+        {
+            leftCycle.Play(); //plays left cycle sound
+            Step(-1);
+        }
+
+
+        if (right.WasPressedThisFrame())
+        {
+            rightCycle.Play(); //plays right cycle sound
+            Step(+1);
+        }
         if (confirm.WasPressedThisFrame()) ChooseSelected();
     }
 
@@ -90,6 +107,8 @@ private void Update()
         Debug.LogWarning("[HandController] cardPool is empty; cannot deal.");
         yield break;
     }
+    
+    cardShuffle.Play(); //Plays cardshuffle sound
 
     // Shuffle indices (Fisher–Yates) and take the first N
     var indices = new List<int>(cardPool.Count);
@@ -157,6 +176,7 @@ private void Update()
         var card = cardView.Card;
         chosenThisTurn++;
         StartCoroutine(chosenView.AddCard(card));
+        cardConfirm.Play();
 
         hoverSystem.Hide();
         cardView.SetHovered(false);
