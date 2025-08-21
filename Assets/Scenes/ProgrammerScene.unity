@@ -145,11 +145,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3148611200237580140, guid: f742698ed80923d47ab3879105a1c327, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.2637
+      value: -2.62
       objectReference: {fileID: 0}
     - target: {fileID: 3148611200237580140, guid: f742698ed80923d47ab3879105a1c327, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -4.1587
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 3148611200237580140, guid: f742698ed80923d47ab3879105a1c327, type: 3}
       propertyPath: m_LocalRotation.w
@@ -265,7 +265,7 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: -5
+        x: -10
         y: 0
         z: 0
       TangentIn:
@@ -301,23 +301,23 @@ MonoBehaviour:
           z: 0.006843985
           w: 0.70707357
     - Position:
-        x: 5
+        x: 10
         y: 0
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -0.5003998
+        z: -1.0001999
       TangentOut:
         x: 0
         y: 0
-        z: 0.5003998
+        z: 1.0001999
       Rotation:
         value:
-          x: 0.019607484
-          y: 0.70683485
-          z: -0.0086589875
-          w: 0.7070537
+          x: 0.0070700697
+          y: 0.7070714
+          z: -0.007069946
+          w: 0.7070714
     m_MetaData:
     - Mode: 3
       Tension: 0.5
@@ -406,7 +406,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 423091237}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -455,13 +455,13 @@ MonoBehaviour:
         z: 1.5
       Rotation:
         value:
-          x: 0
-          y: 0.70710677
+          x: 0.70710677
+          y: 0
           z: 0
           w: 0.70710677
     - Position:
-        x: -5
-        y: 0
+        x: -20
+        y: -15
         z: 0
       TangentIn:
         x: -0
@@ -473,8 +473,8 @@ MonoBehaviour:
         z: 1.5
       Rotation:
         value:
-          x: 0
-          y: 0.70710677
+          x: 0.70710677
+          y: 0
           z: 0
           w: 0.70710677
     m_MetaData:
@@ -542,69 +542,6 @@ Transform:
   - {fileID: 1481884772}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &608349642
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 608349643}
-  - component: {fileID: 608349644}
-  m_Layer: 0
-  m_Name: CardConfirm
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &608349643
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608349642}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1425249239}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &608349644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 608349642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -112972963
-      Data2: 1321994229
-      Data3: -1377975889
-      Data4: -1243826681
-    Path: event:/UI/UI_CardConfirm
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &689597520
 GameObject:
   m_ObjectHideFlags: 0
@@ -654,6 +591,54 @@ MonoBehaviour:
   hoverY: -2
   startAtRightMost: 1
   wrapAround: 0
+--- !u!1 &694135306
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 694135307}
+  - component: {fileID: 694135308}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &694135307
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694135306}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1078728491}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &694135308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694135306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3256cc3462583ef40ac06fb60a18a48f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameController
+  handController: {fileID: 1018054062}
+  autoStartOnPlay: 1
+  playerHealth: 150
+  enemyHealth: 150
 --- !u!1 &743925833
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,7 +665,7 @@ Transform:
   m_GameObject: {fileID: 743925833}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -4, z: 0}
+  m_LocalPosition: {x: 0, y: -6.02, z: 6.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -703,69 +688,6 @@ MonoBehaviour:
   shrinkToFit: 1
   edgePadding: 0.05
   splineContainer: {fileID: 244255602}
---- !u!1 &786424785
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 786424786}
-  - component: {fileID: 786424787}
-  m_Layer: 0
-  m_Name: RightCycle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &786424786
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786424785}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1425249239}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &786424787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786424785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -934291479
-      Data2: 1079632228
-      Data3: 842738572
-      Data4: -1349660761
-    Path: event:/UI/UI_CardCycleRight
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1018054060
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,6 +732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46af2d6d24645af48aac61fb03c8af29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HandController
+  gameController: {fileID: 0}
   handView: {fileID: 743925835}
   creator: {fileID: 2060874519}
   hoverSystem: {fileID: 402353441}
@@ -836,10 +759,10 @@ MonoBehaviour:
   OnTurnEnded:
     m_PersistentCalls:
       m_Calls: []
-  leftCycle: {fileID: 2022614199}
-  rightCycle: {fileID: 786424787}
-  cardConfirm: {fileID: 608349644}
-  cardShuffle: {fileID: 1460943188}
+  leftCycle: {fileID: 0}
+  rightCycle: {fileID: 0}
+  cardConfirm: {fileID: 0}
+  cardShuffle: {fileID: 0}
 --- !u!1 &1078728490
 GameObject:
   m_ObjectHideFlags: 0
@@ -872,6 +795,7 @@ Transform:
   - {fileID: 402353440}
   - {fileID: 689597521}
   - {fileID: 1018054061}
+  - {fileID: 694135307}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1182160869
@@ -964,41 +888,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1967216410}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1425249238
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1425249239}
-  m_Layer: 0
-  m_Name: --- AUDIO ---
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1425249239
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1425249238}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 2022614198}
-  - {fileID: 786424786}
-  - {fileID: 608349643}
-  - {fileID: 1460943187}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1427009447
 GameObject:
   m_ObjectHideFlags: 0
@@ -1025,7 +914,7 @@ Transform:
   m_GameObject: {fileID: 1427009447}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 14.01}
+  m_LocalPosition: {x: 0, y: 9.15, z: 14.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1049,69 +938,6 @@ MonoBehaviour:
   edgePadding: 0.04
   splineContainer: {fileID: 423091239}
   creator: {fileID: 2060874519}
---- !u!1 &1460943186
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1460943187}
-  - component: {fileID: 1460943188}
-  m_Layer: 0
-  m_Name: CardShuffle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1460943187
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460943186}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1425249239}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1460943188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1460943186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: -1728565170
-      Data2: 1242616456
-      Data3: -981772910
-      Data4: -1651332076
-    Path: event:/UI/UI_CardShuffle
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &1481884770
 GameObject:
   m_ObjectHideFlags: 0
@@ -1249,8 +1075,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1750069109}
   - component: {fileID: 1750069108}
+  - component: {fileID: 1750069107}
   - component: {fileID: 1750069110}
-  - component: {fileID: 1750069111}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1258,6 +1084,14 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!81 &1750069107
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1750069106}
+  m_Enabled: 1
 --- !u!20 &1750069108
 Camera:
   m_ObjectHideFlags: 0
@@ -1368,20 +1202,6 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
---- !u!114 &1750069111
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750069106}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioListener
-  nonRigidbodyVelocity: 0
-  attenuationObject: {fileID: 0}
 --- !u!1 &1761579610
 GameObject:
   m_ObjectHideFlags: 0
@@ -1480,69 +1300,6 @@ Transform:
   - {fileID: 1427009448}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2022614197
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2022614198}
-  - component: {fileID: 2022614199}
-  m_Layer: 0
-  m_Name: LeftCycle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2022614198
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022614197}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1425249239}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2022614199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2022614197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: FMODUnity::FMODUnity.StudioEventEmitter
-  CollisionTag: 
-  EventReference:
-    Guid:
-      Data1: 1040515048
-      Data2: 1121393562
-      Data3: -1863234384
-      Data4: -1625234506
-    Path: event:/UI/UI_CardCycleLeft
-  Event: 
-  EventPlayTrigger: 0
-  EventStopTrigger: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  NonRigidbodyVelocity: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
 --- !u!1 &2060874517
 GameObject:
   m_ObjectHideFlags: 0
@@ -1597,4 +1354,3 @@ SceneRoots:
   - {fileID: 1967216410}
   - {fileID: 1078728491}
   - {fileID: 1782126705}
-  - {fileID: 1425249239}
