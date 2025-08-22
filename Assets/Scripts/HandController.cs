@@ -42,6 +42,8 @@ public class HandController : MonoBehaviour
     [SerializeField] private StudioEventEmitter rightCycle;
     [SerializeField] private StudioEventEmitter cardConfirm;
     [SerializeField] private StudioEventEmitter cardShuffle;
+    
+   
 
     private int selectedIndex = -1;
     private int chosenThisTurn = 0;
@@ -241,6 +243,7 @@ private void Update()
         UseCards();
         chosenCards.Clear();
         left.Enable(); right.Enable(); confirm.Enable();
+        
         OnTurnEnded?.Invoke();
     }
 
