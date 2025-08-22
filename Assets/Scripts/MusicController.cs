@@ -41,6 +41,10 @@ public class MusicController : MonoBehaviour
         {
             RuntimeManager.StudioSystem.setParameterByName(musicComboParam, 2f);
         }
+        else if (gameController.enemyHealth <= 25)
+        {
+            RuntimeManager.StudioSystem.setParameterByName(musicComboParam, 3f);
+        }
         else if (gameController.enemyHealth <= 0 )
         {
             musicInstance.stop(STOP_MODE.ALLOWFADEOUT);
