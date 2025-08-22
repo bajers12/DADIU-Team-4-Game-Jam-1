@@ -67,7 +67,7 @@ public class HandView : MonoBehaviour
 
             var group = cards[i].GetComponent<SortingGroup>();
             if (group == null) group = cards[i].gameObject.AddComponent<SortingGroup>();
-            group.sortingOrder = i; // right-most on top
+            group.sortingOrder = i + 11; // right-most on top
         }
 
         yield return new WaitForSeconds(duration);

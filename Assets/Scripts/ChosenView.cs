@@ -79,10 +79,11 @@ public class ChosenView : MonoBehaviour
 
             cards[i].transform.DOMove(worldPos, duration);
             cards[i].transform.DORotateQuaternion(rot, duration);
+            cards[i].transform.DOScale(Vector3.one * 0.5f, duration);
 
             // Right-most on top for nice overlaps
             var group = cards[i].GetComponent<SortingGroup>() ?? cards[i].gameObject.AddComponent<SortingGroup>();
-            group.sortingOrder = i;
+            group.sortingOrder = i + 11;
         }
 
         yield return new WaitForSeconds(duration);
