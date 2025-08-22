@@ -2,6 +2,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class GameController : MonoBehaviour
     public float playerHealth = 150f;
     public float enemyHealth  = 150f;
 
+
+    public List<Card> chosencards ;
     public bool playerTurnFinished;
     
     [Header("Timing")]
@@ -39,13 +42,20 @@ public class GameController : MonoBehaviour
     {
         beatDuration = 60f / bpm;
         
+        //--- Player turn ---
         if (autoStartOnPlay)
             StartCoroutine(BattleLoop());
     }
 
     private void OnPlayerTurnEnded()
     {
+
         playerTurnFinished = true; // HandController already applied damage/heal
+        chosencards = new List<Card>(handController.chosenCards);
+        handController.UseCards();
+        Debug.Log("gamecontroller cards" + chosencards.Count);
+        handController.chosenCards.Clear();
+
     }
 
     private IEnumerator BattleLoop()
@@ -93,10 +103,19 @@ public class GameController : MonoBehaviour
         playerTurnFinished = false;
 
         // Deal and enable player input
-        yield return handController.StartTurnRandom();
+        yield return handController.StartTurnRandom(); // TODO this should return either the cards or the total damage
+
+
 
         // Wait until HandController finishes the turn (after UseCards has run)
         yield return new WaitUntil(() => playerTurnFinished);
+
+        // TODO Launch arrow game
+        // return some sort of mathematical value for damage dealt
+
+        // TODO Do damage
+        // Calculate the damage to be delt
+        // Apply the damage
 
         Debug.Log("Enemy health: " + enemyHealth);
     }

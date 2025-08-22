@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using FMODUnity;
+using UnityEngine.SceneManagement;
 
 public class HandController : MonoBehaviour
 {
@@ -42,13 +43,13 @@ public class HandController : MonoBehaviour
     [SerializeField] private StudioEventEmitter rightCycle;
     [SerializeField] private StudioEventEmitter cardConfirm;
     [SerializeField] private StudioEventEmitter cardShuffle;
-    
-   
+
+    [SerializeField] public string sceneToLoad = "NewScene";
 
     private int selectedIndex = -1;
     private int chosenThisTurn = 0;
     private bool isDealing = false;
-    private List<Card> chosenCards = new List<Card>();
+    public List<Card> chosenCards = new List<Card>();
 
     private InputAction left, right, confirm;
 
@@ -88,13 +89,18 @@ private void Update()
             Step(-1);
         }
 
-
         if (right.WasPressedThisFrame())
         {
             rightCycle.Play(); //plays right cycle sound
             Step(+1);
         }
         if (confirm.WasPressedThisFrame()) ChooseSelected();
+
+        
+        // if (SceneManager.GetSceneByName(sceneToLoad).isLoaded)
+        // {
+        //     SceneManager.UnloadSceneAsync(sceneToLoad);
+        // }
     }
 
 
@@ -226,16 +232,21 @@ private void Update()
     }
 
     // End the player's turn
-    private IEnumerator EndTurn()
+    public IEnumerator EndTurn()
     {
         left.Disable(); right.Disable(); confirm.Disable();
         hoverSystem.Hide();
+
+        if (!SceneManager.GetSceneByName(sceneToLoad).isLoaded) // avoid loading twice
+        {
+            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
+        }
 
         // Toss remaining cards
         yield return TossEntireHand();
         yield return chosenView.ClearAll();
 
-        OnTurnEnded?.Invoke();
+        
 
         selectedIndex = -1;
         chosenThisTurn = 0;
@@ -256,7 +267,7 @@ private void Update()
         }
         return false;
     }
-    private void UseCards()
+    public void UseCards()
     {
         float nextMultiplier = 1f;
 
