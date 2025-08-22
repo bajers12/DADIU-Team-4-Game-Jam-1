@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     public float playerHealth = 150f;
     public float enemyHealth  = 150f;
 
-    private bool playerTurnFinished;
+    public bool playerTurnFinished;
 
     private void OnEnable()
     {

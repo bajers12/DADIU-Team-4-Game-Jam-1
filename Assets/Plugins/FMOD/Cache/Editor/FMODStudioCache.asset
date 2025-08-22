@@ -337,10 +337,10 @@ MonoBehaviour:
   Path: Assets/DADIU_GJ_FMOD 1/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638913797945480155
+  lastModified: 638914552258461207
   FileSizes:
   - Name: Desktop
-    Value: 2543200
+    Value: 2578016
   Exists: 1
 --- !u!114 &11400000
 MonoBehaviour:
@@ -382,7 +382,7 @@ MonoBehaviour:
   StringsBanks:
   - {fileID: 474069028981128057}
   cacheVersion: 131849
-  cacheTime: 638913797945480155
+  cacheTime: 638914552258489228
   SerializableEventsDict:
   - key: event:/SFX/SFX_KeyRight
     index: 0
@@ -458,7 +458,7 @@ MonoBehaviour:
   Path: Assets/DADIU_GJ_FMOD 1/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638913705747818158
+  lastModified: 638914552258489228
   FileSizes:
   - Name: Desktop
     Value: 1604
@@ -500,9 +500,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/MUS_Breakdance/Music_State
+  m_Name: parameter:/MUS_Breakdance/MusicState
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
-  Name: Music_State
+  Name: MusicState
   StudioPath: 
   Min: 0
   Max: 4
@@ -650,7 +650,7 @@ MonoBehaviour:
   - {fileID: -3628457532607315907}
   MinDistance: 1
   MaxDistance: 20
-  Length: 61935
+  Length: 61938
 --- !u!114 &8121787100402019557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,10 +685,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: parameter:/Music_State
+  m_Name: parameter:/MusicState
   m_EditorClassIdentifier: FMODUnityEditor::FMODUnity.EditorParamRef
-  Name: Music_State
-  StudioPath: parameter:/Music_State
+  Name: MusicState
+  StudioPath: parameter:/MusicState
   Min: 0
   Max: 4
   Default: 0
