@@ -75,6 +75,15 @@ public class HandController : MonoBehaviour
     {
         if (autoStartOnPlay)
             StartCoroutine(StartTurnRandom());
+
+        if (!SceneManager.GetSceneByName(sceneToLoad).isLoaded) // avoid loading twice
+        {
+            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
+        }
+        if (SceneManager.GetSceneByName(sceneToLoad).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(sceneToLoad);
+        }
     }
 
     private void Update()
@@ -86,7 +95,6 @@ public class HandController : MonoBehaviour
             leftCycle.Play(); //plays left cycle sound
             Step(-1);
         }
-
 
         if (right.WasPressedThisFrame())
         {
@@ -223,15 +231,6 @@ public class HandController : MonoBehaviour
         chosenThisTurn = 0;
 
         left.Enable(); right.Enable(); confirm.Enable();
-
-        if (!SceneManager.GetSceneByName(sceneToLoad).isLoaded) // avoid loading twice
-        {
-            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
-        }
-        /*if (SceneManager.GetSceneByName(sceneToLoad).isLoaded)
-        {
-            SceneManager.UnloadSceneAsync(sceneToLoad);
-        }*/
     }
 
     private IEnumerator TossEntireHand()

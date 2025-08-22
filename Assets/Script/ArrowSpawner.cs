@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,7 +6,8 @@ public class ArrowSpawner : MonoBehaviour
 {
      private ChosenView chosenView;
 
-    [SerializeField] private CardData cardData;
+    [SerializeField] private List<CardData> cardData;
+    private int cardIterator = 0;
     public GameObject arrowPrefabU;
     public GameObject arrowPrefabD;
     public GameObject arrowPrefabL;
@@ -44,16 +46,21 @@ public class ArrowSpawner : MonoBehaviour
 
     void Update()
     {
-        if (sequenceIndex >= cardData.Sequence.Length) return;
+        if (cardIterator < cardData.Count)
+        
+            if (sequenceIndex >= cardData[cardIterator].Sequence.Length){
+                cardIterator++; // next card
+                sequenceIndex = 0; 
+            } 
 
-    timer += Time.deltaTime;
+            timer += Time.deltaTime;
 
-    if (timer >= beatInterval)
-    {
-        SpawnArrow(cardData.Sequence[sequenceIndex]);
-        sequenceIndex++;
-        timer -= beatInterval; // subtract instead of reset to avoid drift
-    }
+            if (timer >= beatInterval)
+                {
+                    SpawnArrow(cardData[cardIterator].Sequence[sequenceIndex]);
+                    sequenceIndex++;
+                    timer -= beatInterval; // subtract instead of reset to avoid drift
+                }
     }
 
     void SpawnArrow(CardStep step)
