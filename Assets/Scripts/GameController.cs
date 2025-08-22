@@ -26,6 +26,7 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        //--- Player turn ---
         if (autoStartOnPlay)
             StartCoroutine(BattleLoop());
     }
@@ -37,16 +38,16 @@ public class GameController : MonoBehaviour
 
     private IEnumerator BattleLoop()
     {
-        while (playerHealth > 0f && enemyHealth > 0f)
-        {
+        //while (playerHealth > 0f && enemyHealth > 0f)
+        //{
             // --- Player turn ---
             yield return PlayerTurn();
-            if (enemyHealth <= 0f) break;
+            if (enemyHealth <= 0f);
 
             // --- Enemy turn ---
             yield return EnemyTurn();
-            if (playerHealth <= 0f) break;
-        }
+            if (playerHealth <= 0f);
+        //}
 
         if (enemyHealth <= 0f) Debug.Log("Enemy is defeated.");
         else if (playerHealth <= 0f) Debug.Log("Player is defeated.");

@@ -95,14 +95,11 @@ private void Update()
         }
         if (confirm.WasPressedThisFrame()) ChooseSelected();
 
-        if (!SceneManager.GetSceneByName(sceneToLoad).isLoaded) // avoid loading twice
-        {
-            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
-        }
-        if (SceneManager.GetSceneByName(sceneToLoad).isLoaded)
-        {
-            SceneManager.UnloadSceneAsync(sceneToLoad);
-        }
+        
+        // if (SceneManager.GetSceneByName(sceneToLoad).isLoaded)
+        // {
+        //     SceneManager.UnloadSceneAsync(sceneToLoad);
+        // }
     }
 
 
@@ -221,6 +218,11 @@ private void Update()
     {
         left.Disable(); right.Disable(); confirm.Disable();
         hoverSystem.Hide();
+
+        if (!SceneManager.GetSceneByName(sceneToLoad).isLoaded) // avoid loading twice
+        {
+            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
+        }
 
         // Toss remaining cards
         yield return TossEntireHand();
