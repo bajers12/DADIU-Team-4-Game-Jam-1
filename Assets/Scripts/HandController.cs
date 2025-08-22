@@ -50,10 +50,11 @@ public class HandController : MonoBehaviour
 
     private InputAction left, right, confirm;
 
+    // Initialize input actions
     private void OnEnable()
     {
-        left    = new InputAction("Left",    binding: "<Keyboard>/leftArrow");
-        right   = new InputAction("Right",   binding: "<Keyboard>/rightArrow");
+        left = new InputAction("Left", binding: "<Keyboard>/leftArrow");
+        right = new InputAction("Right", binding: "<Keyboard>/rightArrow");
         confirm = new InputAction("Confirm", binding: "<Keyboard>/space");
 
         left.AddBinding("<Keyboard>/a");
@@ -140,6 +141,7 @@ private void Update()
     }
 }
 
+    // Move the selection by the given direction
     private void Step(int dir)
     {
         if (handView.CardsCount == 0) return;
@@ -152,6 +154,7 @@ private void Update()
         SetSelection(next);
     }
 
+    // Set the currently selected card
     private void SetSelection(int index)
     {
         if (selectedIndex >= 0 && selectedIndex < handView.CardsCount)
@@ -167,45 +170,60 @@ private void Update()
         hoverSystem.Show(card.Card, pos);
     }
 
-
+    // Choose the currently selected card
     private void ChooseSelected()
     {
         if (selectedIndex < 0 || selectedIndex >= handView.CardsCount) return;
 
         var cardView = handView.GetCard(selectedIndex);
         var card = cardView.Card;
-        chosenThisTurn++;
-        StartCoroutine(chosenView.AddCard(card));
-        chosenCards.Add(card);
-        cardConfirm.Play();
-
-        hoverSystem.Hide();
-        cardView.SetHovered(false);
-
-        Sequence seq = DOTween.Sequence();
-        seq.Append(cardView.transform.DOScale(1.1f, 0.08f));
-        seq.Append(cardView.transform.DOScale(0f, 0.12f));
-        seq.OnComplete(() =>
+        if (cardCanBeChosen(card))
         {
-            handView.RemoveCard(cardView);
-            Destroy(cardView.gameObject);
+            chosenThisTurn++;
+            StartCoroutine(chosenView.AddCard(card));
+            chosenCards.Add(card);
+            cardConfirm.Play();
 
-            if (chosenThisTurn < picksPerTurn && handView.CardsCount > 0)
+            hoverSystem.Hide();
+            cardView.SetHovered(false);
+
+            Sequence seq = DOTween.Sequence();
+            seq.Append(cardView.transform.DOScale(1.1f, 0.08f));
+            seq.Append(cardView.transform.DOScale(0f, 0.12f));
+            seq.OnComplete(() =>
             {
-                int next = Mathf.Clamp(selectedIndex, 0, handView.CardsCount - 1);
-                SetSelection(next);
-            }
-            else if (chosenThisTurn >= picksPerTurn)
+                handView.RemoveCard(cardView);
+                Destroy(cardView.gameObject);
+
+                if (chosenThisTurn < picksPerTurn && handView.CardsCount > 0)
+                {
+                    int next = Mathf.Clamp(selectedIndex, 0, handView.CardsCount - 1);
+                    SetSelection(next);
+                }
+                else if (chosenThisTurn >= picksPerTurn)
+                {
+                    StartCoroutine(EndTurn());
+                }
+                else
+                {
+                    selectedIndex = -1;
+                }
+            });
+        }
+        else
+        {
+            var sr = cardView.GetComponentInChildren<SpriteRenderer>();
+            if (sr != null)
             {
-                StartCoroutine(EndTurn());
+                Color original = sr.color;
+                sr.DOColor(Color.red, 0.15f)
+                .SetLoops(2, LoopType.Yoyo)
+                .OnComplete(() => sr.color = original);
             }
-            else
-            {
-                selectedIndex = -1;
-            }
-        });
+        }
     }
 
+    // End the player's turn
     private IEnumerator EndTurn()
     {
         left.Disable(); right.Disable(); confirm.Disable();
@@ -219,12 +237,22 @@ private void Update()
 
         selectedIndex = -1;
         chosenThisTurn = 0;
+
         UseCards();
         chosenCards.Clear();
         left.Enable(); right.Enable(); confirm.Enable();
         OnTurnEnded?.Invoke();
     }
 
+    // Check if the card can be chosen based on its multiplier and hand size
+    private bool cardCanBeChosen(Card card)
+    {
+        if (card.Multiplier <= 1f || (card.Multiplier > 1f && chosenCards.Count < 2))
+        {
+            return true;
+        }
+        return false;
+    }
     private void UseCards()
     {
         float nextMultiplier = 1f;
