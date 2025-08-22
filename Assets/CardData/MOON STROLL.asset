@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   <Description>k__BackingField: Multiplier 2x
   <Title>k__BackingField: MOON STROLL
-  <CardImage>k__BackingField: {fileID: 0}
+  <CardImage>k__BackingField: {fileID: 21300000, guid: 9c8ba30345a9c0940be1282878d87315, type: 3}
   <ScoreValue>k__BackingField: 0
   <CardDifficulty>k__BackingField: 2
   <NextMultiplier>k__BackingField: 2
+  <HealAmount>k__BackingField: 0
   <Sequence>k__BackingField: 010000000200000003000000090000000800000001000000080000000800000009000000000000000100000001000000

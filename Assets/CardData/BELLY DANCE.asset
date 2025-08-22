@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   <Description>k__BackingField: Multiplier 1.5x
   <Title>k__BackingField: BELLY DANCE
-  <CardImage>k__BackingField: {fileID: 0}
+  <CardImage>k__BackingField: {fileID: 21300000, guid: ba5ca59c8eb0a94409641e40f3e45224, type: 3}
   <ScoreValue>k__BackingField: 0
   <CardDifficulty>k__BackingField: 0
   <NextMultiplier>k__BackingField: 1.5
+  <HealAmount>k__BackingField: 0
   <Sequence>k__BackingField: 00000000010000000000000001000000

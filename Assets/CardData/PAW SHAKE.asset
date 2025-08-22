@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   <Description>k__BackingField: 50 Points
   <Title>k__BackingField: PAW SHAKE
-  <CardImage>k__BackingField: {fileID: 0}
+  <CardImage>k__BackingField: {fileID: 21300000, guid: 76c55d8fd1ff4a64d944555adc522d1c, type: 3}
   <ScoreValue>k__BackingField: 30
   <CardDifficulty>k__BackingField: 1
   <NextMultiplier>k__BackingField: 1
