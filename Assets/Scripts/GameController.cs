@@ -10,7 +10,16 @@ public class GameController : MonoBehaviour
     public float playerHealth = 150f;
     public float enemyHealth  = 150f;
 
-    private bool playerTurnFinished;
+    public bool playerTurnFinished;
+    
+    [Header("Timing")]
+    [SerializeField] private float bpm = 124f;
+    private float beatDuration;
+    public bool playerDancing;
+    public bool playerDanceActivated;
+    public bool enemyDancing;
+    public bool choosingCards;
+
 
     private void OnEnable()
     {
@@ -26,6 +35,8 @@ public class GameController : MonoBehaviour
 
     private void Start()
     {
+        beatDuration = 60f / bpm;
+        
         if (autoStartOnPlay)
             StartCoroutine(BattleLoop());
     }
@@ -42,10 +53,31 @@ public class GameController : MonoBehaviour
             // --- Player turn ---
             yield return PlayerTurn();
             if (enemyHealth <= 0f) break;
+            
+            playerDancing = true;
+           
+            //wait for 2 beats while transitioning
+            yield return new WaitForSeconds(beatDuration * 4);
+            Debug.Log("dancing");
+            playerDanceActivated = true;
+            
+            
+            // wait for 16 beats (player dance animation time)
+            yield return new WaitForSeconds(beatDuration * 16);
+            Debug.Log("Done Dancing");
+            
+            //wait for 2 beats while transitioning
+            yield return new WaitForSeconds(beatDuration * 4);
+            Debug.Log("Enemy turn");
+            enemyDancing = true;
 
             // --- Enemy turn ---
             yield return EnemyTurn();
             if (playerHealth <= 0f) break;
+
+            // wait for 4 beats while the opponet dances
+            yield return new WaitForSeconds(beatDuration * 16);
+            choosingCards = true;
         }
 
         if (enemyHealth <= 0f) Debug.Log("Enemy is defeated.");
@@ -69,7 +101,7 @@ public class GameController : MonoBehaviour
     public IEnumerator EnemyTurn()
     {
         // TODO: your real enemy AI/logic here
-        yield return new WaitForSeconds(0.25f); // small pacing delay
+        //yield return new WaitForSeconds(0.25f); // small pacing delay
 
         float enemyDamage = 30f;
         DmgPlayer(enemyDamage);
