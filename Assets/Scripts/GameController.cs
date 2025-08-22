@@ -1,15 +1,20 @@
 // GameController.cs
 using System.Collections;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private HandController handController;
 
+
+    
     public bool autoStartOnPlay = true;
     public float playerHealth = 150f;
     public float enemyHealth  = 150f;
 
+
+    public List<Card> chosencards ;
     private bool playerTurnFinished;
 
     private void OnEnable()
@@ -33,13 +38,19 @@ public class GameController : MonoBehaviour
 
     private void OnPlayerTurnEnded()
     {
+
         playerTurnFinished = true; // HandController already applied damage/heal
+        chosencards = new List<Card>(handController.chosenCards);
+        handController.UseCards();
+        Debug.Log("gamecontroller cards" + chosencards.Count);
+        handController.chosenCards.Clear();
+
     }
 
     private IEnumerator BattleLoop()
     {
-        //while (playerHealth > 0f && enemyHealth > 0f)
-        //{
+        while (playerHealth > 0f && enemyHealth > 0f)
+        {
             // --- Player turn ---
             yield return PlayerTurn();
             if (enemyHealth <= 0f);
@@ -47,7 +58,7 @@ public class GameController : MonoBehaviour
             // --- Enemy turn ---
             yield return EnemyTurn();
             if (playerHealth <= 0f);
-        //}
+        }
 
         if (enemyHealth <= 0f) Debug.Log("Enemy is defeated.");
         else if (playerHealth <= 0f) Debug.Log("Player is defeated.");
@@ -60,6 +71,8 @@ public class GameController : MonoBehaviour
 
         // Deal and enable player input
         yield return handController.StartTurnRandom();
+
+
 
         // Wait until HandController finishes the turn (after UseCards has run)
         yield return new WaitUntil(() => playerTurnFinished);

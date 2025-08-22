@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 54084420}
   - component: {fileID: 54084419}
   - component: {fileID: 54084422}
+  - component: {fileID: 54084423}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -288,6 +289,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowMover
   started: 0
+--- !u!114 &54084423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 54084417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69ced73de4f86274ba284b6b9f812942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Arrows
+  assignedKey: 0
 --- !u!1 &378321304
 GameObject:
   m_ObjectHideFlags: 0
@@ -504,7 +518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe5767b9241d75e498d3f45085704a0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.35
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe5767b9241d75e498d3f45085704a0f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -793,7 +807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe5767b9241d75e498d3f45085704a0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.32999992
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe5767b9241d75e498d3f45085704a0f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -895,11 +909,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27008596fe6978b4fb412b55952590bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArrowSpawner
-  cardData: {fileID: 11400000, guid: 7de66faa56afb724bb8dd6c452892b2b, type: 2}
   arrowPrefabU: {fileID: 54084417}
   arrowPrefabD: {fileID: 54084417}
   arrowPrefabL: {fileID: 54084417}
   arrowPrefabR: {fileID: 54084417}
+  keySquare: 0
   placeholderU: {fileID: 1585277080}
   placeholderD: {fileID: 2116797182}
   placeholderL: {fileID: 546669971}
@@ -1159,7 +1173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe5767b9241d75e498d3f45085704a0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.13000011
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe5767b9241d75e498d3f45085704a0f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1636,7 +1650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe5767b9241d75e498d3f45085704a0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.029999733
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fe5767b9241d75e498d3f45085704a0f, type: 3}
       propertyPath: m_LocalPosition.z

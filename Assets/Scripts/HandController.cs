@@ -44,12 +44,12 @@ public class HandController : MonoBehaviour
     [SerializeField] private StudioEventEmitter cardConfirm;
     [SerializeField] private StudioEventEmitter cardShuffle;
 
-    [SerializeField] private string sceneToLoad = "NewScene";
+    [SerializeField] public string sceneToLoad = "NewScene";
 
     private int selectedIndex = -1;
     private int chosenThisTurn = 0;
     private bool isDealing = false;
-    private List<Card> chosenCards = new List<Card>();
+    public List<Card> chosenCards = new List<Card>();
 
     private InputAction left, right, confirm;
 
@@ -214,7 +214,7 @@ private void Update()
         });
     }
 
-    private IEnumerator EndTurn()
+    public IEnumerator EndTurn()
     {
         left.Disable(); right.Disable(); confirm.Disable();
         hoverSystem.Hide();
@@ -228,17 +228,16 @@ private void Update()
         yield return TossEntireHand();
         yield return chosenView.ClearAll();
 
-        OnTurnEnded?.Invoke();
+        
 
         selectedIndex = -1;
         chosenThisTurn = 0;
-        UseCards();
-        chosenCards.Clear();
+ 
         left.Enable(); right.Enable(); confirm.Enable();
         OnTurnEnded?.Invoke();
     }
 
-    private void UseCards()
+    public void UseCards()
     {
         float nextMultiplier = 1f;
 

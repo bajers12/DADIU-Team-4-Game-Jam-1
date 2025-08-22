@@ -1,18 +1,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
+using System.Collections;
+using UnityEngine.Events;
+using DG.Tweening;
+using FMODUnity;
 
 public class ArrowSpawner : MonoBehaviour
 {
-     private ChosenView chosenView;
 
-    [SerializeField] private List<CardData> cardData;
+    // [SerializeField] private List<chosen.chosencards> chosen.chosencards;
     private int cardIterator = 0;
     public GameObject arrowPrefabU;
     public GameObject arrowPrefabD;
     public GameObject arrowPrefabL;
     public GameObject arrowPrefabR;
-
+    public Key keySquare;
     public Transform placeholderU;
     public Transform placeholderD;
     public Transform placeholderL;
@@ -28,17 +32,22 @@ public class ArrowSpawner : MonoBehaviour
     private float nextSpawnTime;
     private int sequenceIndex = 0;
 
-    Vector3 dance;
+    private GameController gameController;
 
-    
+    private HandController handController;
+    public List<Card> list = new List<Card>();
 
     private float timer = 0f;
-   
+
 
     void Start()
     {
         beatInterval = 60f / bpm;
 
+        if (gameController == null)
+            gameController = FindObjectOfType<GameController>();
+        if (handController == null)
+            handController = FindObjectOfType<HandController>();
         // Offset so arrows arrive on beat
         float travelTime = distanceToTarget / arrowSpeed;
         nextSpawnTime = Time.time + travelTime;
@@ -46,27 +55,43 @@ public class ArrowSpawner : MonoBehaviour
 
     void Update()
     {
-        if (cardIterator < cardData.Count)
-        
-            if (sequenceIndex >= cardData[cardIterator].Sequence.Length){
+        list = gameController.chosencards;
+        if (cardIterator < list.Count)
+
+            if (sequenceIndex >= list[cardIterator].Sequence.Count)
+            {
                 cardIterator++; // next card
-                sequenceIndex = 0; 
-            } 
+                sequenceIndex = 0;
+            }
 
-            timer += Time.deltaTime;
+        timer += Time.deltaTime;
 
-            if (timer >= beatInterval)
-                {
-                    SpawnArrow(cardData[cardIterator].Sequence[sequenceIndex]);
-                    sequenceIndex++;
-                    timer -= beatInterval; // subtract instead of reset to avoid drift
-                }
+        if (timer >= beatInterval)
+        {
+            SpawnArrow(list[cardIterator].Sequence[sequenceIndex]);
+            Debug.Log("keySquare" + keySquare);
+            sequenceIndex++;
+            timer -= beatInterval; // subtract instead of reset to avoid drift
+            bool isLastStepOfLastCard =
+                cardIterator == list.Count - 1 &&
+                sequenceIndex == list[cardIterator].Sequence.Count - 1;
+            if (isLastStepOfLastCard)
+            {
+                
+                timer = -100;
+                StartCoroutine(handController.EndTurn());
+                StartCoroutine(waitTime());
+                
+
+            }
+        }
     }
 
     void SpawnArrow(CardStep step)
     {
 
         GameObject arrowToSpawn = null;
+
         
 
         switch (step)
@@ -74,21 +99,22 @@ public class ArrowSpawner : MonoBehaviour
             case CardStep.U:
                 spawnPos = placeholderU.position + Vector3.up * distanceToTarget;
                 arrowToSpawn = arrowPrefabU;
+                keySquare = Key.UpArrow;
                 break;
             case CardStep.D:
                 spawnPos = placeholderD.position + Vector3.up * distanceToTarget;
                 arrowToSpawn = arrowPrefabD;
-                
+                keySquare = Key.DownArrow;
                 break;
             case CardStep.L:
                 spawnPos = placeholderL.position + Vector3.up * distanceToTarget;
                 arrowToSpawn = arrowPrefabL;
-               
+                keySquare = Key.LeftArrow;
                 break;
             case CardStep.R:
                 spawnPos = placeholderR.position + Vector3.up * distanceToTarget;
                 arrowToSpawn = arrowPrefabR;
-                
+                keySquare = Key.RightArrow;
                 break;
             /*case CardStep.UL:
                 spawnPos = placeholderU.position + Vector3.up * distanceToTarget;
@@ -133,10 +159,18 @@ public class ArrowSpawner : MonoBehaviour
         if (arrowToSpawn != null)
         {
             GameObject arrow = Instantiate(arrowToSpawn, spawnPos, Quaternion.identity);
-
-
             ArrowMover mover = arrow.GetComponent<ArrowMover>();
+            Arrows arrowObj = arrow.GetComponent<Arrows>();
+            if (arrowObj != null)
+            {
+                arrowObj.assignedKey = keySquare;
+            }
         }
+    }
+    IEnumerator waitTime()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.UnloadSceneAsync(handController.sceneToLoad);
     }
     
 }
