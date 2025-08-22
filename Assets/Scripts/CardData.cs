@@ -10,6 +10,7 @@ public class CardData : ScriptableObject
     [field: SerializeField] public DifficultyLevel CardDifficulty { get; private set; }
 
     [field: SerializeField] public float NextMultiplier { get; private set; }
+    [field: SerializeField] public float HealAmount { get; private set; }
 
     [Header("Fixed input sequence (never changes)")]
     [Tooltip("Define the exact combo for this card. Duplicates allowed. 'Pause' = empty step.")]

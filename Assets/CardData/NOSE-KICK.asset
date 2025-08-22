@@ -15,7 +15,8 @@ MonoBehaviour:
   <Description>k__BackingField: 50 Points
   <Title>k__BackingField: NOSE-KICK
   <CardImage>k__BackingField: {fileID: 0}
-  <ScoreValue>k__BackingField: 50
+  <ScoreValue>k__BackingField: 30
   <CardDifficulty>k__BackingField: 1
   <NextMultiplier>k__BackingField: 1
+  <HealAmount>k__BackingField: 0
   <Sequence>k__BackingField: 0100000000000000000000000a00000000000000040000000100000001000000

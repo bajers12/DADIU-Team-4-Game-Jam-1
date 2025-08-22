@@ -9,6 +9,9 @@ using UnityEngine.SceneManagement;
 
 public class HandController : MonoBehaviour
 {
+    [Header("Game Controller")]
+    [SerializeField] private GameController gameController;
+
     [Header("Scene refs")]
     [SerializeField] private HandView handView;
     [SerializeField] private CardViewCreator creator;
@@ -34,7 +37,7 @@ public class HandController : MonoBehaviour
 
     [Header("Events")]
     public UnityEvent OnTurnEnded;
-    
+
     [Header("FMOD")]
     [SerializeField] private StudioEventEmitter leftCycle;
     [SerializeField] private StudioEventEmitter rightCycle;
@@ -45,6 +48,8 @@ public class HandController : MonoBehaviour
 
     private int selectedIndex = -1;
     private int chosenThisTurn = 0;
+    private bool isDealing = false;
+    private List<Card> chosenCards = new List<Card>();
 
     private InputAction left, right, confirm;
 
@@ -71,26 +76,13 @@ public class HandController : MonoBehaviour
         left?.Dispose(); right?.Dispose(); confirm?.Dispose();
     }
 
-    private void Start()
+
+
+private void Update()
     {
-        if (autoStartOnPlay)
-            StartCoroutine(StartTurnRandom());
+        if (isDealing || handView.CardsCount == 0) return;
 
-        if (!SceneManager.GetSceneByName(sceneToLoad).isLoaded) // avoid loading twice
-        {
-            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
-        }
-        if (SceneManager.GetSceneByName(sceneToLoad).isLoaded)
-        {
-            SceneManager.UnloadSceneAsync(sceneToLoad);
-        }
-    }
-
-    private void Update()
-    {
-        if (handView.CardsCount == 0) return;
-
-        if (left.WasPressedThisFrame())
+               if (left.WasPressedThisFrame())
         {
             leftCycle.Play(); //plays left cycle sound
             Step(-1);
@@ -102,6 +94,15 @@ public class HandController : MonoBehaviour
             Step(+1);
         }
         if (confirm.WasPressedThisFrame()) ChooseSelected();
+
+        if (!SceneManager.GetSceneByName(sceneToLoad).isLoaded) // avoid loading twice
+        {
+            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
+        }
+        if (SceneManager.GetSceneByName(sceneToLoad).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(sceneToLoad);
+        }
     }
 
 
@@ -117,11 +118,11 @@ public class HandController : MonoBehaviour
         Debug.LogWarning("[HandController] cardPool is empty; cannot deal.");
         yield break;
     }
-    
     cardShuffle.Play(); //Plays cardshuffle sound
 
+
     // Shuffle indices (Fisher–Yates) and take the first N
-    var indices = new List<int>(cardPool.Count);
+        var indices = new List<int>(cardPool.Count);
     for (int i = 0; i < cardPool.Count; i++) indices.Add(i);
 
     for (int i = 0; i < indices.Count - 1; i++)
@@ -186,6 +187,7 @@ public class HandController : MonoBehaviour
         var card = cardView.Card;
         chosenThisTurn++;
         StartCoroutine(chosenView.AddCard(card));
+        chosenCards.Add(card);
         cardConfirm.Play();
 
         hoverSystem.Hide();
@@ -226,11 +228,29 @@ public class HandController : MonoBehaviour
 
         OnTurnEnded?.Invoke();
 
-        // Ready for next turn (your game flow should call StartTurnRandom again)
         selectedIndex = -1;
         chosenThisTurn = 0;
-
+        UseCards();
+        chosenCards.Clear();
         left.Enable(); right.Enable(); confirm.Enable();
+        OnTurnEnded?.Invoke();
+    }
+
+    private void UseCards()
+    {
+        float nextMultiplier = 1f;
+
+        foreach (var card in chosenCards)
+        {
+
+            float healAmount = card.HealAmount;
+            float score = card.ScoreValue;
+            gameController.DmgEnemy(score * nextMultiplier);
+            nextMultiplier = card.Multiplier;
+            gameController.DmgPlayer(-healAmount);
+
+
+        }
     }
 
     private IEnumerator TossEntireHand()

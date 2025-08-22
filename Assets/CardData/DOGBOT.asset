@@ -15,7 +15,8 @@ MonoBehaviour:
   <Description>k__BackingField: 100 Points
   <Title>k__BackingField: DOGBOT
   <CardImage>k__BackingField: {fileID: 0}
-  <ScoreValue>k__BackingField: 100
+  <ScoreValue>k__BackingField: 40
   <CardDifficulty>k__BackingField: 2
   <NextMultiplier>k__BackingField: 1
+  <HealAmount>k__BackingField: 0
   <Sequence>k__BackingField: 0a0000000300000000000000000000000a000000040000000700000004000000000000000200000001000000
