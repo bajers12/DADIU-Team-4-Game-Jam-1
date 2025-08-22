@@ -1417,18 +1417,18 @@ MonoBehaviour:
   chosenView: {fileID: 1427009449}
   autoStartOnPlay: 1
   cardPool:
+  - {fileID: 11400000, guid: e0de49cc7df5a4745b65eec6e5806fe6, type: 2}
+  - {fileID: 11400000, guid: e0de49cc7df5a4745b65eec6e5806fe6, type: 2}
+  - {fileID: 11400000, guid: 881eff7ba2ed70e44b4927af7780dd99, type: 2}
+  - {fileID: 11400000, guid: 7de66faa56afb724bb8dd6c452892b2b, type: 2}
+  - {fileID: 11400000, guid: 1abdc9ea9fd58694f97480d869ca7ef3, type: 2}
+  - {fileID: 11400000, guid: 1abdc9ea9fd58694f97480d869ca7ef3, type: 2}
+  - {fileID: 11400000, guid: c7ff9a1634ff11d419449262117a0868, type: 2}
+  - {fileID: 11400000, guid: c7ff9a1634ff11d419449262117a0868, type: 2}
+  - {fileID: 11400000, guid: 02aa0212a9e9fd14fa45e5a69316d679, type: 2}
   - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
-  - {fileID: 11400000, guid: 79b620e9d0a8de0418d8ae28a49bbd4e, type: 2}
+  - {fileID: 11400000, guid: 5633944a3e4da284c99eb33fa00894db, type: 2}
+  - {fileID: 11400000, guid: 668a76d1e045c5d40b9f8e807a9ffc86, type: 2}
   OnTurnEnded:
     m_PersistentCalls:
       m_Calls: []

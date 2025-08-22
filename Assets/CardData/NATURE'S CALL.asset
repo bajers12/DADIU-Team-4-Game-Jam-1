@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   <Description>k__BackingField: 25 Points
   <Title>k__BackingField: NATURE'S CALL
-  <CardImage>k__BackingField: {fileID: 0}
+  <CardImage>k__BackingField: {fileID: 21300000, guid: 5e270a4b7a5b47c45a723a30056a6bff, type: 3}
   <ScoreValue>k__BackingField: 25
   <CardDifficulty>k__BackingField: 0
   <NextMultiplier>k__BackingField: 1
+  <HealAmount>k__BackingField: 0
   <Sequence>k__BackingField: 00000000030000000000000002000000
