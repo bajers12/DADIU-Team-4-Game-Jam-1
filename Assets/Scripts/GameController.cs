@@ -73,12 +73,13 @@ public class GameController : MonoBehaviour
             Debug.Log("Enemy turn");
             enemyDancing = true;
 
-            // --- Enemy turn ---
-            yield return EnemyTurn();
-            if (playerHealth <= 0f) break;
+
 
             // wait for 4 beats while the opponet dances
             yield return new WaitForSeconds(beatDuration * 16);
+            // --- Enemy turn ---
+            yield return EnemyTurn();
+            if (playerHealth <= 0f) break;
             choosingCards = true;
         }
 
