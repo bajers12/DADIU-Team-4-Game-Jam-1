@@ -252,7 +252,7 @@ private void Update()
         chosenThisTurn = 0;
 
         UseCards();
-        chosenCards.Clear();
+        //chosenCards.Clear();
         left.Enable(); right.Enable(); confirm.Enable();
         
         OnTurnEnded?.Invoke();

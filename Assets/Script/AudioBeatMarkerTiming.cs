@@ -8,7 +8,7 @@ using FMOD.Studio;
 
 public class BeatChecker : MonoBehaviour
 {
-    [SerializeField] private EventReference musicEvent;
+    [SerializeField] public EventReference musicEvent;
 
     [Header("Beat Settings")]
     [SerializeField] private float bpm = 120f;           // beats per minute
@@ -37,10 +37,7 @@ public class BeatChecker : MonoBehaviour
         MergeManualBeats();
         instance = this;
 
-        // start FMOD music
-        musicInstance = RuntimeManager.CreateInstance(musicEvent);
-        musicInstance.start();
-        musicInstance.release();
+    
 
         musicStartTime = Time.time;
     }

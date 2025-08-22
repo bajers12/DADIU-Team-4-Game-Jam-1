@@ -51,10 +51,7 @@ public class GameController : MonoBehaviour
     {
 
         playerTurnFinished = true; // HandController already applied damage/heal
-        chosencards = new List<Card>(handController.chosenCards);
-        handController.UseCards();
-        Debug.Log("gamecontroller cards" + chosencards.Count);
-        handController.chosenCards.Clear();
+        
 
     }
 
@@ -67,11 +64,17 @@ public class GameController : MonoBehaviour
             if (enemyHealth <= 0f) break;
             
             playerDancing = true;
-           
+            
+            chosencards = new List<Card>(handController.chosenCards);
+            handController.UseCards();
+            Debug.Log("gamecontroller cards" + chosencards.Count);
+            handController.chosenCards.Clear();
             //wait for 2 beats while transitioning
             yield return new WaitForSeconds(beatDuration * 4);
             Debug.Log("dancing");
             playerDanceActivated = true;
+
+            
             
             
             // wait for 16 beats (player dance animation time)
