@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class ArrowMover : MonoBehaviour
 {
-    public float beat;
+    private float beat = 124;
     public bool started;
+    
     void Start()
     {
         beat = beat / 60f;
@@ -12,6 +13,6 @@ public class ArrowMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += new Vector3(0f, beat * Time.deltaTime, 0f);
+        transform.position -= new Vector3(0f, beat * Time.deltaTime, 0f);
     }
 }

@@ -7,7 +7,6 @@ public class Checker : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public bool canBePressed;
-    public Key key;
     public GameObject arrowL;  // assign in Inspector
     public GameObject arrowR;
     public GameObject arrowD;  // assign in Inspector
@@ -34,8 +33,8 @@ public class Checker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current[key].wasPressedThisFrame)
-        {
+        
+        
             if (canBePressed)
             {
                 if (Keyboard.current.leftArrowKey.wasPressedThisFrame)
@@ -60,7 +59,7 @@ public class Checker : MonoBehaviour
                 }
                 
             }
-        }
+        
         
     }
     private void OnTriggerEnter2D(Collider2D other)

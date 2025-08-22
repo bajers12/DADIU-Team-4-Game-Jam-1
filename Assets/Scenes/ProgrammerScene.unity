@@ -840,6 +840,7 @@ MonoBehaviour:
   rightCycle: {fileID: 786424787}
   cardConfirm: {fileID: 608349644}
   cardShuffle: {fileID: 1460943188}
+  sceneToLoad: NewScene
 --- !u!1 &1078728490
 GameObject:
   m_ObjectHideFlags: 0

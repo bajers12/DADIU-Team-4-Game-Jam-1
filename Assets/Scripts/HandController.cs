@@ -5,6 +5,7 @@ using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using DG.Tweening;
 using FMODUnity;
+using UnityEngine.SceneManagement;
 
 public class HandController : MonoBehaviour
 {
@@ -39,6 +40,8 @@ public class HandController : MonoBehaviour
     [SerializeField] private StudioEventEmitter rightCycle;
     [SerializeField] private StudioEventEmitter cardConfirm;
     [SerializeField] private StudioEventEmitter cardShuffle;
+
+    [SerializeField] private string sceneToLoad = "NewScene";
 
     private int selectedIndex = -1;
     private int chosenThisTurn = 0;
@@ -220,6 +223,15 @@ public class HandController : MonoBehaviour
         chosenThisTurn = 0;
 
         left.Enable(); right.Enable(); confirm.Enable();
+
+        if (!SceneManager.GetSceneByName(sceneToLoad).isLoaded) // avoid loading twice
+        {
+            SceneManager.LoadScene(sceneToLoad, LoadSceneMode.Additive);
+        }
+        /*if (SceneManager.GetSceneByName(sceneToLoad).isLoaded)
+        {
+            SceneManager.UnloadSceneAsync(sceneToLoad);
+        }*/
     }
 
     private IEnumerator TossEntireHand()
