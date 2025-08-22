@@ -73,11 +73,7 @@ public class HandController : MonoBehaviour
         left?.Dispose(); right?.Dispose(); confirm?.Dispose();
     }
 
-    private void Start()
-    {
-        if (autoStartOnPlay)
-            StartCoroutine(StartTurnRandom());
-    }
+
 
 private void Update()
     {
@@ -226,6 +222,7 @@ private void Update()
         UseCards();
         chosenCards.Clear();
         left.Enable(); right.Enable(); confirm.Enable();
+        OnTurnEnded?.Invoke();
     }
 
     private void UseCards()

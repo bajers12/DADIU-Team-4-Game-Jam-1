@@ -66,5 +66,5 @@
     "explorer.fileNesting.patterns": {
         "*.sln": "*.csproj"
     },
-    "dotnet.defaultSolution": "DADIU-Team-4-Game-Jam-1.sln"
+    "dotnet.defaultSolution": "DogDancer.sln"
 }
