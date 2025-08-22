@@ -59,10 +59,17 @@ public class GameController : MonoBehaviour
         playerTurnFinished = false;
 
         // Deal and enable player input
-        yield return handController.StartTurnRandom();
+        yield return handController.StartTurnRandom(); // TODO this should return either the cards or the total damage
 
         // Wait until HandController finishes the turn (after UseCards has run)
         yield return new WaitUntil(() => playerTurnFinished);
+
+        // TODO Launch arrow game
+        // return some sort of mathematical value for damage dealt
+
+        // TODO Do damage
+        // Calculate the damage to be delt
+        // Apply the damage
 
         Debug.Log("Enemy health: " + enemyHealth);
     }

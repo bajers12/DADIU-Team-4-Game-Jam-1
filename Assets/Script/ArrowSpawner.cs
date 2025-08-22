@@ -6,7 +6,7 @@ public class ArrowSpawner : MonoBehaviour
 {
      private ChosenView chosenView;
 
-    [SerializeField] private List<CardData> cardData;
+    [SerializeField] private List<CardData> cardData; //TODO Fetch this from GameController / elsewhere
     private int cardIterator = 0;
     public GameObject arrowPrefabU;
     public GameObject arrowPrefabD;
@@ -61,6 +61,7 @@ public class ArrowSpawner : MonoBehaviour
                     sequenceIndex++;
                     timer -= beatInterval; // subtract instead of reset to avoid drift
                 }
+        // TODO implement logic here for returning some value representing the score from the arrow game
     }
 
     void SpawnArrow(CardStep step)
