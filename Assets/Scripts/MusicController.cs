@@ -24,13 +24,28 @@ public class MusicController : MonoBehaviour
     void Update()
     {
         // Eksempel på at sætte forskellige states
-        if (gameController.playerTurnFinished == true)
+        if (gameController.playerDancing)
         {
             RuntimeManager.StudioSystem.setParameterByNameWithLabel(musicStateParam, "Ready"); // f.eks. "Ready" state = 1
+            gameController.choosingCards = false;
         }
-        else if (gameController.playerTurnFinished == false)
+
+        if (gameController.playerDanceActivated)
+        {
+            RuntimeManager.StudioSystem.setParameterByNameWithLabel(musicStateParam, "Dancing");
+            gameController.playerDancing = false;
+        }
+        
+        if (gameController.enemyDancing)
         {
             RuntimeManager.StudioSystem.setParameterByNameWithLabel(musicStateParam, "PlayerRoundOver");
+                gameController.playerDanceActivated = false;
+        }
+        
+        if (gameController.choosingCards)
+        {
+            RuntimeManager.StudioSystem.setParameterByNameWithLabel(musicStateParam, "ChoosingCards");
+            gameController.enemyDancing = false;
         }
 
         if (gameController.enemyHealth <= 100)
