@@ -52,6 +52,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: chiwawa_mesh
       objectReference: {fileID: 0}
+    - target: {fileID: 1673437532468091840, guid: 8c16d5b05860e354e93cb5483ebefd8b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.1257599
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

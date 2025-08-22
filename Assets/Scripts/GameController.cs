@@ -1,11 +1,13 @@
 // GameController.cs
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
     [SerializeField] private HandController handController;
 
+    [SerializeField] private HealthBar healthBar;
     public bool autoStartOnPlay = true;
     public float playerHealth = 150f;
     public float enemyHealth  = 150f;
@@ -106,6 +108,7 @@ public class GameController : MonoBehaviour
         float enemyDamage = 30f;
         DmgPlayer(enemyDamage);
         Debug.Log($"Enemy attacks for {enemyDamage}. Player health: {playerHealth}");
+        healthBar.SetHealth(playerHealth);
 
         yield return null;
     }
