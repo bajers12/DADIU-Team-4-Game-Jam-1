@@ -10,13 +10,11 @@ public class HealthBar : MonoBehaviour
     private float maxHealth = 100f;
     private Tween currentTween;
 
-    private void Start()
+    public void SetMaxHealth(float health)
     {
-        // Set starting max health (replace with gc.maxPlayerHealth if available)
-        maxHealth = gc.playerHealth;
-
-        // Initialize UI
-        SetHealth(gc.playerHealth);
+        maxHealth = health;
+        SetHealth(health);
+        Debug.Log("Max health set to: " + maxHealth);
     }
 
     /// <summary>

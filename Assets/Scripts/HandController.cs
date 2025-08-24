@@ -28,7 +28,6 @@ public class HandController : MonoBehaviour
     [SerializeField] private ChosenView chosenView;
 
     [Header("Auto-start for testing")]
-    [SerializeField] private bool autoStartOnPlay = true;
 
     [Header("Random deal pool")]
     [Tooltip("Cards will be picked at random from this list without replacement.")]
@@ -42,21 +41,18 @@ public class HandController : MonoBehaviour
     [SerializeField] private StudioEventEmitter rightCycle;
     [SerializeField] private StudioEventEmitter cardConfirm;
     [SerializeField] private StudioEventEmitter cardShuffle;
-    
-   
 
     private int selectedIndex = -1;
     private int chosenThisTurn = 0;
     private bool isDealing = false;
-    private List<Card> chosenCards = new List<Card>();
+    public List<Card> chosenCards = new List<Card>();
 
     private InputAction left, right, confirm;
 
-    // Initialize input actions
     private void OnEnable()
     {
-        left = new InputAction("Left", binding: "<Keyboard>/leftArrow");
-        right = new InputAction("Right", binding: "<Keyboard>/rightArrow");
+        left    = new InputAction("Left",    binding: "<Keyboard>/leftArrow");
+        right   = new InputAction("Right",   binding: "<Keyboard>/rightArrow");
         confirm = new InputAction("Confirm", binding: "<Keyboard>/space");
 
         left.AddBinding("<Keyboard>/a");
@@ -143,7 +139,6 @@ private void Update()
     }
 }
 
-    // Move the selection by the given direction
     private void Step(int dir)
     {
         if (handView.CardsCount == 0) return;
@@ -156,7 +151,6 @@ private void Update()
         SetSelection(next);
     }
 
-    // Set the currently selected card
     private void SetSelection(int index)
     {
         if (selectedIndex >= 0 && selectedIndex < handView.CardsCount)
@@ -171,20 +165,29 @@ private void Update()
         pos.y = hoverY;
         hoverSystem.Show(card.Card, pos);
     }
+    
+    private bool LegalCard(Card card)
+    {
+        if ((card.Multiplier > 1 && chosenCards.Count > 1) || chosenCards.Count >= picksPerTurn)
+            return false;
 
-    // Choose the currently selected card
+        return true;
+    }
+
+
     private void ChooseSelected()
     {
         if (selectedIndex < 0 || selectedIndex >= handView.CardsCount) return;
 
         var cardView = handView.GetCard(selectedIndex);
         var card = cardView.Card;
-        if (cardCanBeChosen(card))
+        if (LegalCard(card))
         {
             chosenThisTurn++;
             StartCoroutine(chosenView.AddCard(card));
             chosenCards.Add(card);
             cardConfirm.Play();
+
 
             hoverSystem.Hide();
             cardView.SetHovered(false);
@@ -212,20 +215,8 @@ private void Update()
                 }
             });
         }
-        else
-        {
-            var sr = cardView.GetComponentInChildren<SpriteRenderer>();
-            if (sr != null)
-            {
-                Color original = sr.color;
-                sr.DOColor(Color.red, 0.15f)
-                .SetLoops(2, LoopType.Yoyo)
-                .OnComplete(() => sr.color = original);
-            }
-        }
     }
 
-    // End the player's turn
     private IEnumerator EndTurn()
     {
         left.Disable(); right.Disable(); confirm.Disable();
@@ -235,43 +226,13 @@ private void Update()
         yield return TossEntireHand();
         yield return chosenView.ClearAll();
 
-        OnTurnEnded?.Invoke();
-
         selectedIndex = -1;
         chosenThisTurn = 0;
-
-        UseCards();
-        chosenCards.Clear();
         left.Enable(); right.Enable(); confirm.Enable();
-        
         OnTurnEnded?.Invoke();
     }
 
-    // Check if the card can be chosen based on its multiplier and hand size
-    private bool cardCanBeChosen(Card card)
-    {
-        if (card.Multiplier <= 1f || (card.Multiplier > 1f && chosenCards.Count < 2))
-        {
-            return true;
-        }
-        return false;
-    }
-    private void UseCards()
-    {
-        float nextMultiplier = 1f;
 
-        foreach (var card in chosenCards)
-        {
-
-            float healAmount = card.HealAmount;
-            float score = card.ScoreValue;
-            gameController.DmgEnemy(score * nextMultiplier);
-            nextMultiplier = card.Multiplier;
-            gameController.DmgPlayer(-healAmount);
-
-
-        }
-    }
 
     private IEnumerator TossEntireHand()
     {
