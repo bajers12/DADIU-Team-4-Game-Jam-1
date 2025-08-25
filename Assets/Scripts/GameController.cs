@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private HealthBar enemyHealthBar;
     [SerializeField] private PlayerAnimationController playerAnimationController;
+
+    
     public bool autoStartOnPlay = true;
     public float playerHealth = 150f;
     public float enemyHealth  = 150f;
@@ -28,6 +31,9 @@ public class GameController : MonoBehaviour
 
     private SceneChange sceneChange;
 
+
+    public List<Card> chosencards ;
+    private bool playerTurnFinished;
 
     private void OnEnable()
     {
@@ -48,6 +54,7 @@ public class GameController : MonoBehaviour
         enemyHealthBar.SetMaxHealth(enemyHealth);
         sceneChange = GetComponent<SceneChange>();
 
+        //--- Player turn ---
         if (autoStartOnPlay)
             StartCoroutine(BattleLoop());
     }
@@ -55,6 +62,8 @@ public class GameController : MonoBehaviour
     private void OnPlayerTurnEnded()
     {   
         chosenCards = new List<Card>(handController.chosenCards);
+        handController.UseCards();
+        Debug.Log("gamecontroller cards" + chosencards.Count);
         handController.chosenCards.Clear();
         Debug.Log("Length of chosenCards: " + chosenCards.Count);
         playerTurnFinished = true;
@@ -81,7 +90,7 @@ public class GameController : MonoBehaviour
         {
             // --- Player turn ---
             yield return PlayerTurn();
-            if (enemyHealth <= 0f) break;
+            if (enemyHealth <= 0f);
 
             playerDancing = true;
 
@@ -129,10 +138,19 @@ public class GameController : MonoBehaviour
         playerTurnFinished = false;
 
         // Deal and enable player input
-        yield return handController.StartTurnRandom();
+        yield return handController.StartTurnRandom(); // TODO this should return either the cards or the total damage
+
+
 
         // Wait until HandController finishes the turn (after UseCards has run)
         yield return new WaitUntil(() => playerTurnFinished);
+
+        // TODO Launch arrow game
+        // return some sort of mathematical value for damage dealt
+
+        // TODO Do damage
+        // Calculate the damage to be delt
+        // Apply the damage
 
         Debug.Log("Enemy health: " + enemyHealth);
     }
