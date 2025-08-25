@@ -225,6 +225,7 @@ private void Update()
         }
     }
 
+    // End the player's turn
     public IEnumerator EndTurn()
     {
         left.Disable(); right.Disable(); confirm.Disable();

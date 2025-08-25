@@ -90,16 +90,29 @@ public class GameController : MonoBehaviour
         {
             // --- Player turn ---
             yield return PlayerTurn();
-            if (enemyHealth <= 0f);
-
+            if (enemyHealth <= 0f) break;
+            
             playerDancing = true;
-
+            
+            chosencards = new List<Card>(handController.chosenCards);
+            handController.UseCards();
+            Debug.Log("gamecontroller cards" + chosencards.Count);
+            handController.chosenCards.Clear();
             //wait for 2 beats while transitioning
             yield return new WaitForSeconds(beatDuration * 4);
             Debug.Log("dancing");
             playerDanceActivated = true;
             playerAnimationController.TriggerDanceAnimation(chosenCards[0].Title);
 
+
+            
+            
+            
+            // wait for 16 beats (player dance animation time)
+            yield return new WaitForSeconds(beatDuration * 16);
+            Debug.Log("Done Dancing");
+            
+            //wait for 2 beats while transitioning
             yield return new WaitForSeconds(beatDuration * 4);
             playerAnimationController.TriggerDanceAnimation(chosenCards[1].Title);
 
@@ -120,7 +133,6 @@ public class GameController : MonoBehaviour
             yield return new WaitForSeconds(beatDuration * 20);
             // --- Enemy turn ---
             yield return EnemyTurn();
-
             if (playerHealth <= 0f) break;
             enemyDancing = false;
             choosingCards = true;
