@@ -39,7 +39,6 @@ public class ArrowSpawner : MonoBehaviour
 
     private float timer = 0f;
 
-
     void Start()
     {
         beatInterval = 60f / bpm;
