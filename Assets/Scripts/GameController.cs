@@ -33,7 +33,6 @@ public class GameController : MonoBehaviour
 
 
     public List<Card> chosencards ;
-    private bool playerTurnFinished;
 
     private void OnEnable()
     {
